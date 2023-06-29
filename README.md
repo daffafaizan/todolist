@@ -1,9 +1,11 @@
-Installations
+# Installations
 
-#Tailwind for Vite
+### Tailwind for Vite
 ```
 https://tailwindcss.com/docs/guides/vite
-#Packages
+```
+### Packages
+```
 npm install @headlessui/react
 npm i @heroicons/react
 npm install react-hot-toast
