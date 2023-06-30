@@ -1,16 +1,20 @@
-import Footer from "./components/Footer";
-import SimpleTodolist from "./components/SimpleTodolist";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import NoPage from "./pages/NoPage.tsx";
+import Todolist from "./pages/index.tsx";
 
 function App() {
   return (
-    <div className="bg-[#F4F5F0] dark:bg-[#171717] text-stone-900 dark:text-[#EDEDED] min-h-screen font-inter scroll-smooth">
-      <div className="max-w-6xl w-11/12 mx-auto">
+    <>
+      <BrowserRouter>
         <Toaster />
-        <SimpleTodolist />
-        <Footer />
-      </div>
-    </div>
+        <Routes>
+          <Route index element={<Todolist />}></Route>
+          <Route path="/todolist" element={<Todolist/>}></Route>
+          <Route path="*" element={<NoPage />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
