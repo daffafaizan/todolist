@@ -14,12 +14,11 @@ interface item {
 function SimpleTodolist() {
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
-  const [todos, setTodos] = useState<item[]>([
-  ]);
+  const [todos, setTodos] = useState<item[]>([]);
 
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem("todos") || "[]");
-  
+
     if (Array.isArray(storedTodos)) {
       setTodos(storedTodos);
     }
@@ -34,37 +33,37 @@ function SimpleTodolist() {
     };
     setTodos([...todos, newTodo]);
     localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
-    toast.success("Task added!")
+    toast.success("Task added!");
   };
 
   return (
-      <div
-        id="SimpleTodolist"
-        className="flex flex-col items-center justify-center md:h-screen lg:h-screen xl:h-screen py-20"
-      >
-        <Title>Todo List</Title>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-7">
-          {todos.map((todo) => (
-            <TodolistCard
-              key={todo.id}
-              todos={todos}
-              setTodos={setTodos}
-              id={todo.id}
-              title={todo.title}
-              content={todo.content}
-              completed={todo.completed}
-            ></TodolistCard>
-          ))}
-        </div>
-        <DialogForm
-          ButtonCloseText="Add"
-          ButtonText="Add task"
-          setTitle={setTitle}
-          setContent={setContent}
-          handleClick={handleClick}
-        />
+    <div
+      id="SimpleTodolist"
+      className="flex flex-col items-center justify-center md:h-screen lg:h-screen xl:h-screen py-20"
+    >
+      <Title>Todo List</Title>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-7">
+        {todos.map((todo) => (
+          <TodolistCard
+            key={todo.id}
+            todos={todos}
+            setTodos={setTodos}
+            id={todo.id}
+            title={todo.title}
+            content={todo.content}
+            completed={todo.completed}
+          ></TodolistCard>
+        ))}
       </div>
+      <DialogForm
+        ButtonCloseText="Add"
+        ButtonText="Add task"
+        setTitle={setTitle}
+        setContent={setContent}
+        handleClick={handleClick}
+      />
+    </div>
   );
-};
+}
 
 export default SimpleTodolist;

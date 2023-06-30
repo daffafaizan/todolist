@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import SimpleTodolist from "./components/SimpleTodolist";
 import { Toaster } from "react-hot-toast";
 
@@ -7,6 +8,7 @@ function App() {
       <div className="max-w-6xl w-11/12 mx-auto">
         <Toaster />
         <SimpleTodolist />
+        <Footer />
       </div>
     </div>
   );
