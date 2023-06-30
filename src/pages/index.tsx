@@ -8,7 +8,7 @@ import SimpleTodolist from "../components/SimpleTodolist";
 
 function Projects() {
   const navigation = [
-    { name: "Home", href: "daffafaizan.com", path: "/home", current: false },
+    { name: "Home", href: "https://daffafaizan.com", path: "/home", current: false },
   ];
 
   useEffect(() => {
