@@ -30,7 +30,7 @@ function DialogForm({
         <button
           type="button"
           onClick={openModal}
-          className="text-center inline-block px-8 py-3 w-60 h-60 text-base text-gray-500 dark:text-white font-medium bg-transparent border-4 border-gray-500 border-dashed rounded-xl hover:scale-110 duration-300 "
+          className="text-center inline-block px-8 py-3 w-60 h-60 text-gray-500 dark:text-white font-bold bg-transparent border-4 border-gray-500 border-dashed rounded-xl hover:scale-110 duration-300 "
         >
           {ButtonText}
         </button>
