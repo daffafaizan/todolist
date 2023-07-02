@@ -50,7 +50,7 @@ function TodolistCard({
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div
-              className="rounded-full w-4 h-4 border border-cyan-700 hover:scale-110 duration-300"
+              className="rounded-full w-4 h-4 border border-cyan-700 hover:scale-150 duration-300"
               onClick={() => handleToggle(id)}
               style={{ backgroundColor: completed ? "#0e7490" : "transparent" }}
             ></div>
@@ -58,7 +58,7 @@ function TodolistCard({
           </div>
           <div className="flex items-center">
             <div
-              className="text-gray-500 hover:text-gray-300 cursor-pointer ml-8"
+              className="text-gray-500 hover:text-gray-300 cursor-pointer hover:scale-150 duration-300 ml-8"
               onClick={() => handleDelete(id)}
             >
               <Icon icon="fa6-solid:trash" className="h-4 w-4" />
