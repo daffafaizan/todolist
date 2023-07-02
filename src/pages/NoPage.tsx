@@ -1,7 +1,7 @@
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/ui/Sidebar";
 import AnimatedCursor from "react-animated-cursor";
 import { useEffect } from "react";
-import AnimatedPage from "../components/AnimatedPage";
+import AnimatedPage from "../components/animations/AnimatedPage";
 import Error404 from "../components/nopage/Error404";
 
 function Blog() {
