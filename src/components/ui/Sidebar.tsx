@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { HashLink as Link } from "react-router-hash-link";
 import Dark from "./Dark";
-import AnimatedUI from "./AnimatedUI";
+import AnimatedUI from "../animations/AnimatedUI";
 
 function Sidebar({ navigation }) {
   const [showSidebar, setShowSidebar] = useState(false);

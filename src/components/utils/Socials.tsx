@@ -1,6 +1,6 @@
 import { FiGithub, FiTwitter, FiLinkedin, FiInstagram } from "react-icons/fi";
-import Title from "./Title";
-import AnimatedComponents from "./AnimatedComponents";
+import Title from "../utils/Title";
+import AnimatedComponents from "../animations/AnimatedComponents";
 
 const socialLinks = [
   {

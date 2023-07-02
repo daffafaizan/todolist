@@ -1,5 +1,5 @@
-import AnimatedComponents from "./AnimatedComponents";
-import Title from "./Title";
+import AnimatedComponents from "../animations/AnimatedComponents";
+import Title from "../utils/Title";
 import { Icon } from "@iconify/react";
 
 function Error404() {
