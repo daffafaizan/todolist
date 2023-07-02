@@ -1,9 +1,9 @@
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-import Socials from "../components/Socials";
+import Sidebar from "../components/ui/Sidebar";
+import Footer from "../components/ui/Footer";
+import Socials from "../components/utils/Socials";
 import AnimatedCursor from "react-animated-cursor";
 import { useEffect } from "react";
-import AnimatedPage from "../components/AnimatedPage";
+import AnimatedPage from "../components/animations/AnimatedPage";
 import SimpleTodolist from "../components/todolist/SimpleTodolist";
 
 function Projects() {
