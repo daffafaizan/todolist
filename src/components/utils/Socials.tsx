@@ -1,4 +1,4 @@
-import { FiGithub, FiTwitter, FiLinkedin, FiInstagram } from "react-icons/fi";
+import { FiGithub, FiFileText, FiLinkedin, FiInstagram } from "react-icons/fi";
 import Title from "../utils/Title";
 import AnimatedComponents from "../animations/AnimatedComponents";
 
@@ -10,8 +10,8 @@ const socialLinks = [
   },
   {
     id: 2,
-    icon: <FiTwitter />,
-    url: "https://twitter.com/yeikSPAD",
+    icon: <FiFileText />,
+    url: "https://drive.google.com/file/d/12Qr73sxw91fl5s6Vgipho39dw-5dhcpf/view?usp=sharing",
   },
   {
     id: 3,
