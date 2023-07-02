@@ -46,7 +46,7 @@ function TodolistCard({
 
   return (
     <>
-      <div className="dark:text-white text-stone-900 w-full max-w-md flex flex-col rounded-xl shadow-lg p-4 hover:scale-105 hover:shadow-cyan-200 hover:dark:shadow-cyan-400 duration-300">
+      <div className="dark:text-white text-stone-900 w-60 h-60 max-w-md flex flex-col rounded-xl shadow-lg p-4 hover:scale-105 hover:shadow-cyan-200 hover:dark:shadow-cyan-400 duration-300">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div

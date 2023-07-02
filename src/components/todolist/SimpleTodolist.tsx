@@ -42,7 +42,7 @@ function SimpleTodolist() {
       <div
         id="SimpleTodolist"
         className={`flex flex-col items-center justify-center py-20 ${
-          todos.length <= 4 ? "h-screen" : "md:h-screen lg:h-screen xl:h-screen"
+          todos.length <= 2 ? "h-screen" : "md:h-screen lg:h-screen xl:h-screen"
         }`}
       >
         <Title>Todo List</Title>
@@ -58,14 +58,14 @@ function SimpleTodolist() {
               completed={todo.completed}
             ></TodolistCard>
           ))}
+          <DialogForm
+            ButtonCloseText="Add"
+            ButtonText="Add task"
+            setTitle={setTitle}
+            setContent={setContent}
+            handleClick={handleClick}
+          />
         </div>
-        <DialogForm
-          ButtonCloseText="Add"
-          ButtonText="Add task"
-          setTitle={setTitle}
-          setContent={setContent}
-          handleClick={handleClick}
-        />
       </div>
     </AnimatedComponents>
   );
