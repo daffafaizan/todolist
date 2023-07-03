@@ -2,7 +2,6 @@ import Sidebar from "../components/ui/Sidebar";
 import { useEffect } from "react";
 import AnimatedPage from "../components/animations/AnimatedPage";
 import Error404 from "../components/nopage/Error404";
-import CustomCursor from "../components/ui/CustomCursor";
 
 function Blog() {
   const navigation = [
