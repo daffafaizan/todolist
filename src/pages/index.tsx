@@ -11,12 +11,16 @@ function Projects() {
       name: "Home",
       href: "https://daffafaizan.com",
       path: "/home",
+      target: "",
+      rel: "",
       current: false,
     },
     {
       name: "GitHub Repo",
       href: "https://github.com/daffafaizan/todolist",
       path: "https://github.com/daffafaizan/todolist",
+      target: "_blank",
+      rel: "noopener noreferrer",
       current: false,
     },
   ];

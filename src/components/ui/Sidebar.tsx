@@ -43,6 +43,8 @@ function Sidebar({ navigation }) {
                 key={item.name}
                 to={item.href}
                 smooth
+                target={item.target}
+                rel={item.rel}
                 className={classNames(
                   item.current
                     ? "bg-cyan-900 shadow-lg dark:shadow-lg hover:scale-110 duration-300 rounded-md text-white"
