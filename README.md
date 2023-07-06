@@ -20,4 +20,3 @@ npm i framer-motion
 npm i react-icons --save
 ```
 Enjoy :D
-- Daffa
