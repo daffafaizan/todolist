@@ -13,6 +13,12 @@ function Projects() {
       path: "/home",
       current: false,
     },
+    {
+      name: "GitHub Repo",
+      href: "https://github.com/daffafaizan/todolist",
+      path: "https://github.com/daffafaizan/todolist",
+      current: false,
+    },
   ];
 
   useEffect(() => {
