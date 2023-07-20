@@ -37,7 +37,7 @@ function Sidebar({ navigation }) {
         }`}
       >
         <div className="flex items-center justify-center flex-col text-center h-full my-3 mx-3 gap-6">
-          <div className="flex flex-col text-xl font-semibold text-white gap-12">
+          <div className="flex flex-col text-xl font-semibold text-white gap-3">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -47,9 +47,9 @@ function Sidebar({ navigation }) {
                 rel={item.rel}
                 className={classNames(
                   item.current
-                    ? "bg-cyan-900 shadow-lg dark:shadow-lg hover:scale-110 duration-300 rounded-md text-white"
-                    : "text-gray-300 hover:scale-110 duration-300 hover:text-white shadow-lg dark:shadow-lg rounded-md px-8 py-6 xxs:px-4 xxs:py-4 xxxs:px-4 xxxs:py-4 text-lg font-medium",
-                  "rounded-md px-8 py-6 xxs:px-4 xxs:py-4 xxxs:px-4 xxxs:py-4 text-lg font-medium"
+                    ? "bg-cyan-900 text-white"
+                    : "text-gray-300 hover:text-white px-8 py-6 xxs:px-4 xxs:py-4 xxxs:px-4 xxxs:py-4 text-lg font-medium",
+                  "px-8 py-6 xxs:px-4 xxs:py-4 xxxs:px-4 xxxs:py-4 text-lg font-medium"
                 )}
                 aria-current={item.current ? "page" : undefined}
               >
