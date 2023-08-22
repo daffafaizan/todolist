@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import TodolistCard from "./TodolistCard";
 import NewTaskForm from "./forms/NewTaskForm";
 import toast from "react-hot-toast";
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from "uuid";
 
 interface Todo {
   id: string;
@@ -19,14 +19,18 @@ function SimpleTodolist() {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem("todos") ?? "[]");
-
-    if (Array.isArray(storedTodos)) {
-      setTodos(storedTodos);
+    //localStorage.clear() // Debug clear
+    try {
+      const storedTodos = JSON.parse(localStorage.getItem("todos") ?? "[]");
+      if (Array.isArray(storedTodos)) {
+        setTodos(storedTodos);
+      }
+    } catch (error) {
+      console.error("Error parsing JSON from local storage:", error);
     }
   }, []);
 
-  const handleClick = () => {
+  const handleAddTodo = () => {
     const newTodo: Todo = {
       id: uuid(),
       title: title,
@@ -36,6 +40,30 @@ function SimpleTodolist() {
     setTodos([...todos, newTodo]);
     localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
     toast.success("Task added!");
+  };
+
+  const handleEditTodo = (
+    id: string,
+    title: string,
+    content: string,
+    completed: boolean
+  ) => {
+    const editedTodo = {
+      id: id,
+      title: title,
+      content: content,
+      completed: completed,
+    };
+    setTodos((prevState: any) =>
+      prevState.map((todo: any) =>
+        todo["id"] === editedTodo["id"] ? editedTodo : todo
+      )
+    );
+    const updatedTodos = todos.map((todo) =>
+      todo.id === editedTodo.id ? editedTodo : todo
+    );
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    toast.success("Successfully edit todo!");
   };
 
   return (
@@ -51,12 +79,10 @@ function SimpleTodolist() {
           {todos.map((todo) => (
             <TodolistCard
               key={todo.id}
+              todo={todo}
               todos={todos}
               setTodos={setTodos}
-              id={todo.id}
-              title={todo.title}
-              content={todo.content}
-              completed={todo.completed}
+              handleEdit={handleEditTodo}
             ></TodolistCard>
           ))}
           <NewTaskForm
@@ -64,7 +90,7 @@ function SimpleTodolist() {
             ButtonText="Add task"
             setTitle={setTitle}
             setContent={setContent}
-            handleClick={handleClick}
+            handleClick={handleAddTodo}
           />
         </div>
       </div>
