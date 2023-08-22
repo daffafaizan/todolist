@@ -2,7 +2,7 @@ import AnimatedComponents from "../animations/AnimatedComponents";
 import Title from "../utils/Title";
 import { useState, useEffect } from "react";
 import TodolistCard from "./TodolistCard";
-import DialogForm from "../utils/DialogForm";
+import DialogForm from "./forms/DialogForm";
 import toast from "react-hot-toast";
 
 interface item {
