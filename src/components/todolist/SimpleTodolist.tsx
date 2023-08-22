@@ -43,7 +43,7 @@ function SimpleTodolist() {
       <div
         id="SimpleTodolist"
         className={`flex flex-col items-center justify-center py-20 ${
-          todos.length <= 2 ? "h-screen" : "md:h-screen lg:h-screen xl:h-screen"
+          todos.length <= 1 ? "h-screen" : "md:h-screen lg:h-screen xl:h-screen"
         }`}
       >
         <Title>Todo List</Title>
