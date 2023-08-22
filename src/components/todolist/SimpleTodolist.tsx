@@ -2,11 +2,12 @@ import AnimatedComponents from "../animations/AnimatedComponents";
 import Title from "../utils/Title";
 import { useState, useEffect } from "react";
 import TodolistCard from "./TodolistCard";
-import DialogForm from "../utils/DialogForm";
+import NewTaskForm from "./forms/NewTaskForm";
 import toast from "react-hot-toast";
+import { v4 as uuid } from "uuid";
 
-interface item {
-  id: number;
+interface Todo {
+  id: string;
   title: string;
   content: string;
   completed: boolean;
@@ -15,19 +16,23 @@ interface item {
 function SimpleTodolist() {
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
-  const [todos, setTodos] = useState<item[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem("todos") ?? "[]");
-
-    if (Array.isArray(storedTodos)) {
-      setTodos(storedTodos);
+    //localStorage.clear() // Debug clear
+    try {
+      const storedTodos = JSON.parse(localStorage.getItem("todos") ?? "[]");
+      if (Array.isArray(storedTodos)) {
+        setTodos(storedTodos);
+      }
+    } catch (error) {
+      console.error("Error parsing JSON from local storage:", error);
     }
   }, []);
 
-  const handleClick = () => {
-    const newTodo: item = {
-      id: Date.now(),
+  const handleAddTodo = () => {
+    const newTodo: Todo = {
+      id: uuid(),
       title: title,
       content: content,
       completed: false,
@@ -37,12 +42,36 @@ function SimpleTodolist() {
     toast.success("Task added!");
   };
 
+  const handleEditTodo = (
+    id: string,
+    title: string,
+    content: string,
+    completed: boolean
+  ) => {
+    const editedTodo = {
+      id: id,
+      title: title,
+      content: content,
+      completed: completed,
+    };
+    setTodos((prevState: any) =>
+      prevState.map((todo: any) =>
+        todo["id"] === editedTodo["id"] ? editedTodo : todo
+      )
+    );
+    const updatedTodos = todos.map((todo) =>
+      todo.id === editedTodo.id ? editedTodo : todo
+    );
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    toast.success("Successfully edit todo!");
+  };
+
   return (
     <AnimatedComponents>
       <div
         id="SimpleTodolist"
         className={`flex flex-col items-center justify-center py-20 ${
-          todos.length <= 2 ? "h-screen" : "md:h-screen lg:h-screen xl:h-screen"
+          todos.length <= 1 ? "h-screen" : "md:h-screen lg:h-screen xl:h-screen"
         }`}
       >
         <Title>Todo List</Title>
@@ -50,20 +79,18 @@ function SimpleTodolist() {
           {todos.map((todo) => (
             <TodolistCard
               key={todo.id}
+              todo={todo}
               todos={todos}
               setTodos={setTodos}
-              id={todo.id}
-              title={todo.title}
-              content={todo.content}
-              completed={todo.completed}
+              handleEdit={handleEditTodo}
             ></TodolistCard>
           ))}
-          <DialogForm
+          <NewTaskForm
             ButtonCloseText="Add"
             ButtonText="Add task"
             setTitle={setTitle}
             setContent={setContent}
-            handleClick={handleClick}
+            handleClick={handleAddTodo}
           />
         </div>
       </div>
