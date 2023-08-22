@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import TodolistCard from "./TodolistCard";
 import NewTaskForm from "./forms/NewTaskForm";
 import toast from "react-hot-toast";
+import { v4 as uuid } from 'uuid';
 
 interface Todo {
-  id: number;
+  id: uuid;
   title: string;
   content: string;
   completed: boolean;
@@ -27,7 +28,7 @@ function SimpleTodolist() {
 
   const handleClick = () => {
     const newTodo: Todo = {
-      id: Date.now(),
+      id: uuid(),
       title: title,
       content: content,
       completed: false,
