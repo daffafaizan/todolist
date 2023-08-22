@@ -5,25 +5,29 @@ import { Icon } from "@iconify/react";
 
 function EditTaskForm({
   ButtonCloseText,
-  id,
-//   setTitle,
-//   setContent,
-//   handleClick,
+  todo,
+  handleEdit,
 }: {
   ButtonCloseText: string;
-  id: string;
-//   setTitle: any;
-//   setContent: any;
-//   handleClick: any;
+  todo: any;
+  handleEdit: any;
 }) {
   let [isOpen, setIsOpen] = useState(false);
+  const [newTitle, setNewTitle] = useState(todo["title"]);
+  const [newContent, setNewContent] = useState(todo["content"]);
+
+  const handleChanges = () => {
+    handleEdit(todo.id, newTitle, newContent, todo.completed);
+    closeModal();
+  };
 
   function closeModal() {
+    setNewTitle(todo["title"]);
+    setNewContent(todo["content"]);
     setIsOpen(false);
   }
 
   function openModal() {
-    console.log(id)
     setIsOpen(true);
   }
   return (
@@ -84,9 +88,9 @@ function EditTaskForm({
                         <input
                           type="text"
                           className="h-2 w-full p-5 bg-white border-2 rounded-md focus:shadow-outline focus:outline-none text-stone-800"
-                          placeholder="Task title"
+                          placeholder={todo.title}
                           name="taskName"
-                          //onChange={(e) => setTitle(e.currentTarget.value)}
+                          onChange={(e) => setNewTitle(e.currentTarget.value)}
                         ></input>
                       </div>
                       <div className="">
@@ -94,9 +98,9 @@ function EditTaskForm({
                           className="w-full p-5 mt-3 bg-white border-2 rounded-md focus:shadow-outline focus:outline-none text-stone-800"
                           rows={4}
                           maxLength={220}
-                          placeholder="Task description"
+                          placeholder={todo.content}
                           name="description"
-                          //onChange={(e) => setContent(e.currentTarget.value)}
+                          onChange={(e) => setNewContent(e.currentTarget.value)}
                         ></textarea>
                       </div>
                     </form>
@@ -107,7 +111,7 @@ function EditTaskForm({
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={() => {
-                        //handleClick();
+                        handleChanges();
                         closeModal();
                       }}
                     >

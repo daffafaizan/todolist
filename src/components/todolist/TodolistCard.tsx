@@ -3,19 +3,15 @@ import EditTaskForm from "./forms/EditTaskForm";
 import toast from "react-hot-toast";
 
 function TodolistCard({
+  todo,
   todos,
   setTodos,
-  id,
-  title,
-  content,
-  completed,
+  handleEdit,
 }: {
+  todo: any;
   todos: any;
   setTodos: any;
-  id: string;
-  title: string;
-  content: string;
-  completed: boolean;
+  handleEdit: any;
 }) {
   const handleDelete = (id: string) => {
     const newTodos = todos.filter((todo: any) => todo.id !== id);
@@ -52,28 +48,26 @@ function TodolistCard({
           <div className="flex items-center space-x-4">
             <div
               className="rounded-full w-4 h-4 border border-cyan-700 hover:scale-125 duration-300"
-              onClick={() => handleToggle(id)}
-              style={{ backgroundColor: completed ? "#0e7490" : "transparent" }}
+              onClick={() => handleToggle(todo.id)}
+              style={{ backgroundColor: todo.completed ? "#0e7490" : "transparent" }}
             ></div>
-            <div className="text-md font-bold">{title}</div>
+            <div className="text-md font-bold">{todo.title}</div>
           </div>
           <div className="flex items-center">
             <EditTaskForm
               ButtonCloseText="Edit"
-              id={id}
-              // setTitle={setTitle}
-              // setContent={setContent}
-              // handleClick={handleClick}
+              todo={todo}
+              handleEdit={handleEdit}
             />
             <div
               className="text-gray-500 hover:text-gray-300 cursor-pointer hover:scale-125 duration-300 ml-3"
-              onClick={() => handleDelete(id)}
+              onClick={() => handleDelete(todo.id)}
             >
               <Icon icon="fa6-solid:trash" className="h-4 w-4" />
             </div>
           </div>
         </div>
-        <div className="mt-4 text-gray-500 font-bold text-sm">{content}</div>
+        <div className="mt-4 text-gray-500 font-bold text-sm">{todo.content}</div>
       </div>
     </>
   );
