@@ -58,12 +58,13 @@ function TodolistCard({
             <div className="text-md font-bold">{title}</div>
           </div>
           <div className="flex items-center">
-            <div
-              className="text-gray-500 hover:text-gray-300 cursor-pointer hover:scale-125 duration-300 ml-8"
-              onClick={() => handleDelete(id)}
-            >
-              <Icon icon="fa6-solid:pen" className="h-4 w-4" />
-            </div>
+            <EditTaskForm
+              ButtonCloseText="Edit"
+              id={id}
+              // setTitle={setTitle}
+              // setContent={setContent}
+              // handleClick={handleClick}
+            />
             <div
               className="text-gray-500 hover:text-gray-300 cursor-pointer hover:scale-125 duration-300 ml-3"
               onClick={() => handleDelete(id)}
