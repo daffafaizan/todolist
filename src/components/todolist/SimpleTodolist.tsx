@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { v4 as uuid } from 'uuid';
 
 interface Todo {
-  id: uuid;
+  id: string;
   title: string;
   content: string;
   completed: boolean;

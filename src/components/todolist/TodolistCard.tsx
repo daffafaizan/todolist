@@ -12,19 +12,19 @@ function TodolistCard({
 }: {
   todos: any;
   setTodos: any;
-  id: number;
+  id: string;
   title: string;
   content: string;
   completed: boolean;
 }) {
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string) => {
     const newTodos = todos.filter((todo: any) => todo.id !== id);
     setTodos(newTodos);
     localStorage.setItem("todos", JSON.stringify(newTodos));
     toast.success("Successfully deleted task");
   };
 
-  const handleToggle = (id: number) => {
+  const handleToggle = (id: string) => {
     setTodos((prevTodos: any) =>
       prevTodos.map((todo: any) => {
         if (todo.id === id) {
