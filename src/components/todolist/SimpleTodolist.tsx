@@ -2,10 +2,10 @@ import AnimatedComponents from "../animations/AnimatedComponents";
 import Title from "../utils/Title";
 import { useState, useEffect } from "react";
 import TodolistCard from "./TodolistCard";
-import DialogForm from "./forms/DialogForm";
+import NewTaskForm from "./forms/NewTaskForm";
 import toast from "react-hot-toast";
 
-interface item {
+interface Todo {
   id: number;
   title: string;
   content: string;
@@ -15,7 +15,7 @@ interface item {
 function SimpleTodolist() {
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
-  const [todos, setTodos] = useState<item[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem("todos") ?? "[]");
@@ -26,7 +26,7 @@ function SimpleTodolist() {
   }, []);
 
   const handleClick = () => {
-    const newTodo: item = {
+    const newTodo: Todo = {
       id: Date.now(),
       title: title,
       content: content,
@@ -58,7 +58,7 @@ function SimpleTodolist() {
               completed={todo.completed}
             ></TodolistCard>
           ))}
-          <DialogForm
+          <NewTaskForm
             ButtonCloseText="Add"
             ButtonText="Add task"
             setTitle={setTitle}

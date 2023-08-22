@@ -2,7 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-function DialogForm({
+function NewTaskForm({
   ButtonText,
   ButtonCloseText,
   setTitle,
@@ -122,4 +122,4 @@ function DialogForm({
   );
 }
 
-export default DialogForm;
+export default NewTaskForm;
