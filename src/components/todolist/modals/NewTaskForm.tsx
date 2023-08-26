@@ -1,29 +1,23 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { Icon } from "@iconify/react";
 
-function EditTaskForm({
+function NewTaskForm({
+  ButtonText,
   ButtonCloseText,
-  todo,
-  handleEdit,
+  setTitle,
+  setContent,
+  handleClick,
 }: {
+  ButtonText: string;
   ButtonCloseText: string;
-  todo: any;
-  handleEdit: any;
+  setTitle: any;
+  setContent: any;
+  handleClick: any;
 }) {
   let [isOpen, setIsOpen] = useState(false);
-  const [newTitle, setNewTitle] = useState(todo["title"]);
-  const [newContent, setNewContent] = useState(todo["content"]);
-
-  const handleChanges = () => {
-    handleEdit(todo.id, newTitle, newContent, todo.completed);
-    closeModal();
-  };
 
   function closeModal() {
-    setNewTitle(todo["title"]);
-    setNewContent(todo["content"]);
     setIsOpen(false);
   }
 
@@ -36,9 +30,9 @@ function EditTaskForm({
         <button
           type="button"
           onClick={openModal}
-          className="text-gray-500 hover:text-gray-300 cursor-pointer hover:scale-125 duration-300 ml-8"
+          className="text-center inline-block px-8 py-3 w-60 h-60 text-gray-500 dark:text-white font-bold bg-transparent border-4 border-gray-500 border-dashed rounded-xl hover:scale-105 duration-300 "
         >
-          <Icon icon="fa6-solid:pen" className="h-4 w-4" />
+          {ButtonText}
         </button>
       </div>
 
@@ -72,11 +66,11 @@ function EditTaskForm({
                     as="h3"
                     className="text-lg font-bold leading-6 text-gray-900"
                   >
-                    Edit task
+                    New task
                   </Dialog.Title>
 
                   <button
-                    className="fixed right-0 top-0 text-4xl text-cyan-600 border-cyan-600 hover:scale-110 duration-300 border-2 border-transparent p-4 rounded-full items-center cursor-pointer"
+                    className="fixed right-0 top-0 text-4xl text-cyan-600 hover:scale-110 duration-300 border-2 border-transparent p-4 rounded-full items-center cursor-pointer"
                     onClick={closeModal}
                   >
                     <XMarkIcon className="block h-9 w-9" aria-hidden="true" />
@@ -88,9 +82,9 @@ function EditTaskForm({
                         <input
                           type="text"
                           className="h-2 w-full p-5 bg-white border-2 rounded-md focus:shadow-outline focus:outline-none text-stone-800"
-                          placeholder={todo.title}
+                          placeholder="Task title"
                           name="taskName"
-                          onChange={(e) => setNewTitle(e.currentTarget.value)}
+                          onChange={(e) => setTitle(e.currentTarget.value)}
                         ></input>
                       </div>
                       <div className="">
@@ -98,9 +92,9 @@ function EditTaskForm({
                           className="w-full p-5 mt-3 bg-white border-2 rounded-md focus:shadow-outline focus:outline-none text-stone-800"
                           rows={4}
                           maxLength={220}
-                          placeholder={todo.content}
+                          placeholder="Task description"
                           name="description"
-                          onChange={(e) => setNewContent(e.currentTarget.value)}
+                          onChange={(e) => setContent(e.currentTarget.value)}
                         ></textarea>
                       </div>
                     </form>
@@ -111,7 +105,7 @@ function EditTaskForm({
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={() => {
-                        handleChanges();
+                        handleClick();
                         closeModal();
                       }}
                     >
@@ -128,4 +122,4 @@ function EditTaskForm({
   );
 }
 
-export default EditTaskForm;
+export default NewTaskForm;
