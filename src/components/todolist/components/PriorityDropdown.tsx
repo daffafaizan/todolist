@@ -1,11 +1,11 @@
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment } from "react";
 import { Icon } from "@iconify/react";
 
 export default function PriorityDropdown() {
   return (
     <>
-      <Menu as="div" className="relative inline-block text-left bg-white">
+      <Menu as="div" className="relative inline-block text-left bg-white" style={{}}>
         <Menu.Button className="text-gray-500 hover:text-gray-300 bg-black cursor-pointer hover:scale-125 duration-300 ml-8">
           <Icon icon="fa6-solid:flag" className="h-4 w-4" />
         </Menu.Button>
@@ -24,7 +24,7 @@ export default function PriorityDropdown() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                      active ? "bg-cyan-500 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     {active ? (
@@ -46,7 +46,7 @@ export default function PriorityDropdown() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                      active ? "bg-cyan-500 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     {active ? (
@@ -70,7 +70,7 @@ export default function PriorityDropdown() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                      active ? "bg-cyan-500 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     {active ? (
@@ -92,7 +92,7 @@ export default function PriorityDropdown() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                      active ? "bg-cyan-500 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     {active ? (
@@ -116,7 +116,7 @@ export default function PriorityDropdown() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                      active ? "bg-cyan-500 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     {active ? (
@@ -152,8 +152,8 @@ function EditInactiveIcon(props) {
     >
       <path
         d="M4 13V16H7L16 7L13 4L4 13Z"
-        fill="#EDE9FE"
-        stroke="#A78BFA"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
     </svg>
@@ -170,8 +170,8 @@ function EditActiveIcon(props) {
     >
       <path
         d="M4 13V16H7L16 7L13 4L4 13Z"
-        fill="#8B5CF6"
-        stroke="#C4B5FD"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
     </svg>
@@ -188,14 +188,14 @@ function DuplicateInactiveIcon(props) {
     >
       <path
         d="M4 4H12V12H4V4Z"
-        fill="#EDE9FE"
-        stroke="#A78BFA"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
       <path
         d="M8 8H16V16H8V8Z"
-        fill="#EDE9FE"
-        stroke="#A78BFA"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
     </svg>
@@ -212,14 +212,14 @@ function DuplicateActiveIcon(props) {
     >
       <path
         d="M4 4H12V12H4V4Z"
-        fill="#8B5CF6"
-        stroke="#C4B5FD"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
       <path
         d="M8 8H16V16H8V8Z"
-        fill="#8B5CF6"
-        stroke="#C4B5FD"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
     </svg>
@@ -239,8 +239,8 @@ function ArchiveInactiveIcon(props) {
         y="8"
         width="10"
         height="8"
-        fill="#EDE9FE"
-        stroke="#A78BFA"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
       <rect
@@ -248,11 +248,11 @@ function ArchiveInactiveIcon(props) {
         y="4"
         width="12"
         height="4"
-        fill="#EDE9FE"
-        stroke="#A78BFA"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
-      <path d="M8 12H12" stroke="#A78BFA" strokeWidth="2" />
+      <path d="M8 12H12" stroke="rgb(107 114 128)" strokeWidth="2" />
     </svg>
   );
 }
@@ -270,8 +270,8 @@ function ArchiveActiveIcon(props) {
         y="8"
         width="10"
         height="8"
-        fill="#8B5CF6"
-        stroke="#C4B5FD"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
       <rect
@@ -279,11 +279,11 @@ function ArchiveActiveIcon(props) {
         y="4"
         width="12"
         height="4"
-        fill="#8B5CF6"
-        stroke="#C4B5FD"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
-      <path d="M8 12H12" stroke="#A78BFA" strokeWidth="2" />
+      <path d="M8 12H12" stroke="rgb(107 114 128)" strokeWidth="2" />
     </svg>
   );
 }
@@ -296,9 +296,9 @@ function MoveInactiveIcon(props) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M10 4H16V10" stroke="#A78BFA" strokeWidth="2" />
-      <path d="M16 4L8 12" stroke="#A78BFA" strokeWidth="2" />
-      <path d="M8 6H4V16H14V12" stroke="#A78BFA" strokeWidth="2" />
+      <path d="M10 4H16V10" stroke="rgb(107 114 128)" strokeWidth="2" />
+      <path d="M16 4L8 12" stroke="rgb(107 114 128)" strokeWidth="2" />
+      <path d="M8 6H4V16H14V12" stroke="rgb(107 114 128)" strokeWidth="2" />
     </svg>
   );
 }
@@ -311,9 +311,9 @@ function MoveActiveIcon(props) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M10 4H16V10" stroke="#C4B5FD" strokeWidth="2" />
-      <path d="M16 4L8 12" stroke="#C4B5FD" strokeWidth="2" />
-      <path d="M8 6H4V16H14V12" stroke="#C4B5FD" strokeWidth="2" />
+      <path d="M10 4H16V10" stroke="rgb(107 114 128)" strokeWidth="2" />
+      <path d="M16 4L8 12" stroke="rgb(107 114 128)" strokeWidth="2" />
+      <path d="M8 6H4V16H14V12" stroke="rgb(107 114 128)" strokeWidth="2" />
     </svg>
   );
 }
@@ -331,12 +331,12 @@ function DeleteInactiveIcon(props) {
         y="6"
         width="10"
         height="10"
-        fill="#EDE9FE"
-        stroke="#A78BFA"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
-      <path d="M3 6H17" stroke="#A78BFA" strokeWidth="2" />
-      <path d="M8 6V4H12V6" stroke="#A78BFA" strokeWidth="2" />
+      <path d="M3 6H17" stroke="rgb(107 114 128)" strokeWidth="2" />
+      <path d="M8 6V4H12V6" stroke="rgb(107 114 128)" strokeWidth="2" />
     </svg>
   );
 }
@@ -354,12 +354,12 @@ function DeleteActiveIcon(props) {
         y="6"
         width="10"
         height="10"
-        fill="#8B5CF6"
-        stroke="#C4B5FD"
+        fill="rgb(209 213 219)"
+        stroke="rgb(107 114 128)"
         strokeWidth="2"
       />
-      <path d="M3 6H17" stroke="#C4B5FD" strokeWidth="2" />
-      <path d="M8 6V4H12V6" stroke="#C4B5FD" strokeWidth="2" />
+      <path d="M3 6H17" stroke="rgb(107 114 128)" strokeWidth="2" />
+      <path d="M8 6V4H12V6" stroke="rgb(107 114 128)" strokeWidth="2" />
     </svg>
   );
 }

@@ -91,7 +91,6 @@ function NewTaskForm({
                         <textarea
                           className="w-full p-5 mt-3 bg-white border-2 rounded-md focus:shadow-outline focus:outline-none text-stone-800"
                           rows={4}
-                          // maxLength={220}
                           placeholder="Task description"
                           name="description"
                           onChange={(e) => setContent(e.currentTarget.value)}
