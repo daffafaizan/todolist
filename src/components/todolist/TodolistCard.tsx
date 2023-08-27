@@ -134,11 +134,11 @@ function TodolistCard({
                 <Dialog.Panel className="w-full aspect-square max-w-md transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <div className="flex items-center space-x-4 mb-6">
                     <div
-                      className="rounded-full w-5 h-5 border border-cyan-700 hover:scale-125 duration-300"
+                      className={`rounded-full w-5 h-5 border hover:scale-125 duration-300 ${todo.priority === "High" ? "border-red-500" : todo.priority === "Medium" ? "border-yellow-500" : "border-gray-500"}`}
                       onClick={() => handleToggleCompleted(todo.id)}
                       style={{
                         backgroundColor: todo.completed
-                          ? "#0e7490"
+                          ? (todo.priority === "High" ? "#ef4444" : todo.priority === "Medium" ? "#eab308" : "#6b7280")
                           : "transparent",
                       }}
                     ></div>
