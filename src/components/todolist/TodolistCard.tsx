@@ -85,10 +85,17 @@ function TodolistCard({
           </div>
         </div>
         <div
-          className="h-full mt-4 p-2 text-gray-500 font-bold text-sm rounded-xl bg-[#edefe7] dark:bg-[#1b1b1b]"
+          className="h-full mt-4 p-2 text-gray-500 cursor-pointer font-bold text-sm rounded-xl bg-[#edefe7] dark:bg-[#1b1b1b]"
           onClick={openModal}
         >
-          {todo.content.length <= 220 ? todo.content : <p>test</p>}
+          {todo.content.length <= 220 ? (
+            todo.content
+          ) : (
+            <div>
+              {`${todo.content.substring(0, 130)}`}
+              <a onClick={openModal} className="text-cyan-500 cursor-pointer">...Read more</a>
+            </div>
+          )}
         </div>
       </div>
       <Transition appear show={isOpen} as={Fragment}>

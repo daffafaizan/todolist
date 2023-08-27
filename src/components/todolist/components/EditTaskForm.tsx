@@ -97,7 +97,6 @@ function EditTaskForm({
                         <textarea
                           className="w-full p-5 mt-3 bg-white border-2 rounded-md focus:shadow-outline focus:outline-none text-stone-800"
                           rows={4}
-                          maxLength={220}
                           placeholder={todo.content}
                           name="description"
                           onChange={(e) => setNewContent(e.currentTarget.value)}
