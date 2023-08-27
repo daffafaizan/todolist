@@ -14,7 +14,7 @@ export default function PriorityDropdown({
   return (
     <>
       <Menu as="div" className="relative flex flex-col items-center text-left">
-        <Menu.Button className={`text-gray-500 hover:text-gray-300 cursor-pointer hover:scale-125 duration-300 ml-8 ${priority === "High" ? "text-red-500" : priority === "Medium" ? "text-yellow-500" : "text-gray-500"}`}>
+        <Menu.Button className={`text-gray-500 cursor-pointer hover:scale-125 duration-300 ml-8 ${priority === "High" ? "text-red-500" : priority === "Medium" ? "text-yellow-500" : "text-gray-500"}`}>
           <Icon icon="fa6-solid:flag" className="h-4 w-4" />
         </Menu.Button>
         <Transition
