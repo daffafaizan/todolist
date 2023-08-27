@@ -56,10 +56,7 @@ function TodolistCard({
 
   return (
     <>
-      <div
-        className="dark:text-white text-stone-900 w-60 h-60 max-w-md flex flex-col rounded-xl shadow-lg p-4 hover:scale-105 hover:shadow-cyan-200 hover:dark:shadow-cyan-400 duration-300"
-        onClick={openModal}
-      >
+      <div className="dark:text-white text-stone-900 w-60 h-60 max-w-md flex flex-col rounded-xl shadow-lg p-4 hover:scale-105 hover:shadow-cyan-200 hover:dark:shadow-cyan-400 duration-300">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div
@@ -85,7 +82,10 @@ function TodolistCard({
             </div>
           </div>
         </div>
-        <div className="mt-4 text-gray-500 font-bold text-sm">
+        <div
+          className="h-full mt-4 p-2 text-gray-500 font-bold text-sm rounded-xl bg-[#edefe7] dark:bg-[#1b1b1b]"
+          onClick={openModal}
+        >
           {todo.content}
         </div>
       </div>
@@ -115,15 +115,9 @@ function TodolistCard({
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full aspect-square max-w-md transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  {/* <Dialog.Title
-                    as="h3"
-                    className="text-lg font-bold leading-6 mb-6 text-gray-900"
-                  >
-                    {todo.title}
-                  </Dialog.Title> */}
                   <div className="flex items-center space-x-4 mb-6">
                     <div
-                      className="rounded-full w-4 h-4 border border-cyan-700 hover:scale-125 duration-300"
+                      className="rounded-full w-5 h-5 border border-cyan-700 hover:scale-125 duration-300"
                       onClick={() => handleToggle(todo.id)}
                       style={{
                         backgroundColor: todo.completed
@@ -131,7 +125,7 @@ function TodolistCard({
                           : "transparent",
                       }}
                     ></div>
-                    <div className="text-md font-bold">{todo.title}</div>
+                    <div className="text-lg font-bold">{todo.title}</div>
                   </div>
 
                   <button
