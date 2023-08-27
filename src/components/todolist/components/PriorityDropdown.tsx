@@ -4,13 +4,11 @@ import { Icon } from "@iconify/react";
 
 export default function PriorityDropdown() {
   return (
-    <div className="">
-      <Menu as="div" className="relative inline-block text-left">
-        <div>
-          <Menu.Button className="text-gray-500 hover:text-gray-300 cursor-pointer hover:scale-125 duration-300 ml-8">
-            <Icon icon="fa6-solid:flag" className="h-4 w-4" />
-          </Menu.Button>
-        </div>
+    <>
+      <Menu as="div" className="relative inline-block text-left bg-white">
+        <Menu.Button className="text-gray-500 hover:text-gray-300 bg-black cursor-pointer hover:scale-125 duration-300 ml-8">
+          <Icon icon="fa6-solid:flag" className="h-4 w-4" />
+        </Menu.Button>
         <Transition
           as={Fragment}
           enter="transition ease-out duration-100"
@@ -140,7 +138,7 @@ export default function PriorityDropdown() {
           </Menu.Items>
         </Transition>
       </Menu>
-    </div>
+    </>
   );
 }
 
