@@ -11,6 +11,7 @@ interface Todo {
   title: string;
   content: string;
   completed: boolean;
+  priority: string;
 }
 
 function SimpleTodolist() {
@@ -36,6 +37,7 @@ function SimpleTodolist() {
       title: title,
       content: content,
       completed: false,
+      priority: "Low"
     };
     setTodos([...todos, newTodo]);
     localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
@@ -46,13 +48,15 @@ function SimpleTodolist() {
     id: string,
     title: string,
     content: string,
-    completed: boolean
+    completed: boolean,
+    priority: string
   ) => {
     const editedTodo = {
       id: id,
       title: title,
       content: content,
       completed: completed,
+      priority: priority
     };
     setTodos((prevState: any) =>
       prevState.map((todo: any) =>
@@ -64,6 +68,25 @@ function SimpleTodolist() {
     );
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
     toast.success("Successfully edit todo!");
+  };
+
+  const handleSelectPriority = (id: string, priority: string) => {
+    setTodos((prevTodos: any) =>
+      prevTodos.map((todo: any) => {
+        if (todo.id === id) {
+          const updatedTodo = { ...todo, priority: priority };
+          toast.success(`Task set to ${priority} priority!`);
+          localStorage.setItem(
+            "todos",
+            JSON.stringify(
+              prevTodos.map((t: any) => (t.id === id ? updatedTodo : t))
+            )
+          );
+          return updatedTodo;
+        }
+        return todo;
+      })
+    );
   };
 
   return (
@@ -83,6 +106,7 @@ function SimpleTodolist() {
               todos={todos}
               setTodos={setTodos}
               handleEdit={handleEditTodo}
+              handleSelectPriority={handleSelectPriority}
             ></TodolistCard>
           ))}
           <NewTaskForm

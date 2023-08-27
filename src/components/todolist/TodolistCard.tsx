@@ -11,11 +11,13 @@ function TodolistCard({
   todos,
   setTodos,
   handleEdit,
+  handleSelectPriority,
 }: {
   todo: any;
   todos: any;
   setTodos: any;
   handleEdit: any;
+  handleSelectPriority: any;
 }) {
   let [isOpen, setIsOpen] = useState(false);
 
@@ -34,7 +36,7 @@ function TodolistCard({
     toast.success("Successfully deleted task");
   };
 
-  const handleToggle = (id: string) => {
+  const handleToggleCompleted = (id: string) => {
     setTodos((prevTodos: any) =>
       prevTodos.map((todo: any) => {
         if (todo.id === id) {
@@ -61,7 +63,7 @@ function TodolistCard({
         <div className="flex items-center justify-between">
           <div
             className="rounded-full flex-shrink-0 mr-2 w-4 h-4 border border-cyan-700 hover:scale-125 duration-300"
-            onClick={() => handleToggle(todo.id)}
+            onClick={() => handleToggleCompleted(todo.id)}
             style={{
               backgroundColor: todo.completed ? "#0e7490" : "transparent",
             }}
@@ -70,7 +72,11 @@ function TodolistCard({
             <div className="text-md font-bold">{todo.title}</div>
           </div>
           <div className="flex items-center">
-            <PriorityDropdown />
+            <PriorityDropdown
+              id={todo.id}
+              priority={todo.priority}
+              handleSelectPriority={handleSelectPriority}
+            />
             <EditTaskForm
               ButtonCloseText="Edit"
               todo={todo}
@@ -93,7 +99,9 @@ function TodolistCard({
           ) : (
             <div>
               {`${todo.content.substring(0, 130)}`}
-              <a onClick={openModal} className="text-cyan-500 cursor-pointer">...Read more</a>
+              <a onClick={openModal} className="text-cyan-500 cursor-pointer">
+                ...Read more
+              </a>
             </div>
           )}
         </div>
@@ -127,7 +135,7 @@ function TodolistCard({
                   <div className="flex items-center space-x-4 mb-6">
                     <div
                       className="rounded-full w-5 h-5 border border-cyan-700 hover:scale-125 duration-300"
-                      onClick={() => handleToggle(todo.id)}
+                      onClick={() => handleToggleCompleted(todo.id)}
                       style={{
                         backgroundColor: todo.completed
                           ? "#0e7490"
