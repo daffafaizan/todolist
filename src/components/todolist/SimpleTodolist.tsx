@@ -2,7 +2,7 @@ import AnimatedComponents from "../animations/AnimatedComponents";
 import Title from "../utils/Title";
 import { useState, useEffect } from "react";
 import TodolistCard from "./TodolistCard";
-import NewTaskForm from "./modals/NewTaskForm";
+import NewTaskForm from "./components/NewTaskForm";
 import toast from "react-hot-toast";
 import { v4 as uuid } from "uuid";
 

@@ -36,7 +36,7 @@ function EditTaskForm({
         <button
           type="button"
           onClick={openModal}
-          className="text-gray-500 hover:text-gray-300 cursor-pointer hover:scale-125 duration-300 ml-8"
+          className="text-gray-500 hover:text-gray-300 cursor-pointer hover:scale-125 duration-300 ml-3"
         >
           <Icon icon="fa6-solid:pen" className="h-4 w-4" />
         </button>

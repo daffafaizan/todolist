@@ -2,8 +2,9 @@ import { Icon } from "@iconify/react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import EditTaskForm from "./modals/EditTaskForm";
+import EditTaskForm from "./components/EditTaskForm";
 import toast from "react-hot-toast";
+import PriorityDropdown from "./components/PriorityDropdown";
 
 function TodolistCard({
   todo,
@@ -69,6 +70,7 @@ function TodolistCard({
             <div className="text-md font-bold">{todo.title}</div>
           </div>
           <div className="flex items-center">
+            <PriorityDropdown />
             <EditTaskForm
               ButtonCloseText="Edit"
               todo={todo}
