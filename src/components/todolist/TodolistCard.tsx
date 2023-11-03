@@ -131,7 +131,7 @@ function TodolistCard({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full aspect-square max-w-md transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full flex flex-col aspect-square max-w-md transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <div className="flex items-center space-x-4 mb-6">
                     <div
                       className={`rounded-full w-5 h-5 border hover:scale-125 duration-300 ${
@@ -156,13 +156,13 @@ function TodolistCard({
                   </div>
 
                   <button
-                    className="fixed right-0 top-0 text-4xl text-cyan-600 hover:scale-110 duration-300 border-2 border-transparent p-4 rounded-full items-center cursor-pointer"
+                    className="fixed right-0 top-0 text-4xl text-cyan-600 hover:scale-110 duration-300 border-2 border-transparent outline-none focus:outline-none p-4 rounded-full items-center cursor-pointer"
                     onClick={closeModal}
                   >
                     <XMarkIcon className="block h-9 w-9" aria-hidden="true" />
                   </button>
 
-                  <div className="h-full p-3 text-sm text-gray-500 border-2 rounded-xl overflow-scroll">
+                  <div className="p-3 h-full text-sm text-gray-500 border-2 rounded-xl overflow-scroll">
                     {todo.content}
                   </div>
                 </Dialog.Panel>

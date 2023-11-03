@@ -76,7 +76,7 @@ function EditTaskForm({
                   </Dialog.Title>
 
                   <button
-                    className="fixed right-0 top-0 text-4xl text-cyan-600 hover:scale-110 duration-300 border-2 border-transparent p-4 rounded-full items-center cursor-pointer"
+                    className="fixed right-0 top-0 text-4xl text-cyan-600 hover:scale-110 duration-300 border-2 border-transparent outline-none focus:outline-none p-4 rounded-full items-center cursor-pointer"
                     onClick={closeModal}
                   >
                     <XMarkIcon className="block h-9 w-9" aria-hidden="true" />
