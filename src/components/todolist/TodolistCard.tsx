@@ -69,7 +69,21 @@ function TodolistCard({
             }}
           ></div>
           <div className="flex items-center space-x-4 mr-auto">
-            <div className="text-md font-bold">{todo.title}</div>
+            <div className="text-md font-bold">
+              {todo.title.length <= 8 ? (
+                todo.title
+              ) : (
+                <div>
+                  {`${todo.title.substring(0, 5)}`}
+                  <a
+                    onClick={openModal}
+                    className="text-cyan-500 cursor-pointer"
+                  >
+                    ...
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
           <div className="flex items-center">
             <PriorityDropdown
