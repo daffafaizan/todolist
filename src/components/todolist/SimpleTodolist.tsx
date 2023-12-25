@@ -42,6 +42,8 @@ function SimpleTodolist() {
     setTodos([...todos, newTodo]);
     localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
     toast.success("Task added!");
+    setTitle("");
+    setContent("");
   };
 
   const handleEditTodo = (
