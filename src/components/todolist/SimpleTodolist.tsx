@@ -93,12 +93,10 @@ function SimpleTodolist() {
     <AnimatedComponents>
       <div
         id="SimpleTodolist"
-        className={`flex flex-col items-center justify-center py-20 ${
-          todos.length <= 1 ? "h-screen" : "md:h-screen lg:h-screen xl:h-screen"
-        }`}
+        className="min-h-screen flex flex-col items-center justify-center py-20" 
       >
         <Title>Todo List</Title>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
           {todos.map((todo) => (
             <TodolistCard
               key={todo.id}
