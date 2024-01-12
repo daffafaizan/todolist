@@ -18,6 +18,8 @@ function NewTaskForm({
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
+    setTitle("");
+    setContent("");
     setIsOpen(false);
   }
 
@@ -78,7 +80,7 @@ function NewTaskForm({
 
                   <div className="mt-6 text-sm text-gray-500">
                     <form>
-                      <div className="">
+                      <div>
                         <input
                           type="text"
                           className="h-2 w-full p-5 bg-white border-2 rounded-md focus:shadow-outline focus:outline-none text-stone-800"
@@ -87,12 +89,12 @@ function NewTaskForm({
                           onChange={(e) => setTitle(e.currentTarget.value)}
                         ></input>
                       </div>
-                      <div className="">
+                      <div>
                         <textarea
                           className="w-full p-5 mt-3 bg-white border-2 rounded-md focus:shadow-outline focus:outline-none text-stone-800"
                           rows={4}
-                          placeholder="Task description"
-                          name="description"
+                          placeholder="Task content"
+                          name="content"
                           onChange={(e) => setContent(e.currentTarget.value)}
                         ></textarea>
                       </div>

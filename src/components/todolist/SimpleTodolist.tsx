@@ -32,18 +32,20 @@ function SimpleTodolist() {
   }, []);
 
   const handleAddTodo = () => {
-    const newTodo: Todo = {
-      id: uuid(),
-      title: title,
-      content: content,
-      completed: false,
-      priority: "Low"
-    };
-    setTodos([...todos, newTodo]);
-    localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
-    toast.success("Task added!");
-    setTitle("");
-    setContent("");
+    if (title == "") {
+      toast.error("Title cannot be empty!");
+    } else {
+      const newTodo: Todo = {
+        id: uuid(),
+        title: title,
+        content: content,
+        completed: false,
+        priority: "Low"
+      };
+      setTodos([...todos, newTodo]);
+      localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
+      toast.success("Task added!");
+    }
   };
 
   const handleEditTodo = (
@@ -53,10 +55,31 @@ function SimpleTodolist() {
     completed: boolean,
     priority: string
   ) => {
+    const todo = todos.find(todo => todo.id === id);
+    let newTitle: string | undefined;
+    let newContent: string | undefined;
+    if (title == "") {
+      if (content == "") {
+        newTitle = todo?.title;
+        newContent = todo?.content;
+      } else {
+        newTitle = todo?.title;
+        newContent = content;
+      }
+    } else {
+      if (content == "") {
+        newTitle = title;
+        newContent = todo?.content;
+      } else {
+        newTitle = title;
+        newContent = content;
+      }
+    }
+
     const editedTodo = {
       id: id,
-      title: title,
-      content: content,
+      title: newTitle,
+      content: newContent,
       completed: completed,
       priority: priority
     };

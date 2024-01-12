@@ -13,17 +13,16 @@ function EditTaskForm({
   handleEdit: any;
 }) {
   let [isOpen, setIsOpen] = useState(false);
-  const [newTitle, setNewTitle] = useState(todo["title"]);
-  const [newContent, setNewContent] = useState(todo["content"]);
+  const [newTitle, setNewTitle] = useState("");
+  const [newContent, setNewContent] = useState("");
 
   const handleChanges = () => {
     handleEdit(todo.id, newTitle, newContent, todo.completed);
-    closeModal();
   };
 
   function closeModal() {
-    setNewTitle(todo["title"]);
-    setNewContent(todo["content"]);
+    setNewTitle("");
+    setNewContent("");
     setIsOpen(false);
   }
 
@@ -84,7 +83,7 @@ function EditTaskForm({
 
                   <div className="mt-6 text-sm text-gray-500">
                     <form>
-                      <div className="">
+                      <div>
                         <input
                           type="text"
                           className="h-2 w-full p-5 bg-white border-2 rounded-md focus:shadow-outline focus:outline-none text-stone-800"
@@ -93,12 +92,12 @@ function EditTaskForm({
                           onChange={(e) => setNewTitle(e.currentTarget.value)}
                         ></input>
                       </div>
-                      <div className="">
+                      <div>
                         <textarea
                           className="w-full p-5 mt-3 bg-white border-2 rounded-md focus:shadow-outline focus:outline-none text-stone-800"
                           rows={4}
                           placeholder={todo.content}
-                          name="description"
+                          name="content"
                           onChange={(e) => setNewContent(e.currentTarget.value)}
                         ></textarea>
                       </div>
